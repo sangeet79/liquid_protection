@@ -1,4 +1,4 @@
-minetest.register_privilege( "liquid", "Can place liquid at any depth.")
+minetest.register_privilege( "liquids", "Can place liquid at any depth.")
 
 local LIQUID_PLACE_LEVEL = 0
 
@@ -11,7 +11,7 @@ function override_on_place(item_name)
 			return itemstack -- No placement
 		end
 		if pointed_thing.above.y <= LIQUID_PLACE_LEVEL
-				or minetest.check_player_privs(placer, "liquid") then
+				or minetest.check_player_privs(placer, "liquids") then
 			-- OK
 			return old_on_place(itemstack, placer, pointed_thing)
 		end
