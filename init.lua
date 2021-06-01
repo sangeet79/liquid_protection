@@ -26,4 +26,4 @@ end
 
 override_on_place("bucket:bucket_lava")
 override_on_place("bucket:bucket_water")
-override_on_place("bucket:river_water_source")
+override_on_place("bucket:bucket_river_water")
