@@ -1,4 +1,4 @@
-minetest.register_privilege( "liquids", "Can spill flowing liquids at any depth.")
+minetest.register_privilege( "liquid", "Can place liquid at any depth.")
 
 local LIQUID_PLACE_LEVEL = 0
 
@@ -11,15 +11,15 @@ function override_on_place(item_name)
 			return itemstack -- No placement
 		end
 		if pointed_thing.above.y <= LIQUID_PLACE_LEVEL
-				or minetest.check_player_privs(placer, "liquids") then
+				or minetest.check_player_privs(placer, "liquid") then
 			-- OK
 			return old_on_place(itemstack, placer, pointed_thing)
 		end
 		-- Prevent placement
 		local player_name = placer:get_player_name()
 		minetest.chat_send_player(player_name,
-			"You are not allowed to place flowing liquids above " .. LIQUID_PLACE_LEVEL .. "!")
-		minetest.log("action", player_name .. " tried to place some flowing liquid above " .. LIQUID_PLACE_LEVEL)
+			"You are not allowed to place liquids above " .. LIQUID_PLACE_LEVEL .. "!")
+		minetest.log("action", player_name .. " tried to place some liquid above " .. LIQUID_PLACE_LEVEL)
 		return itemstack
 	end
 end
