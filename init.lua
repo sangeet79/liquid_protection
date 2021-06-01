@@ -25,6 +25,5 @@ function override_on_place(item_name)
 end
 
 override_on_place("bucket:bucket_lava")
-override_on_place("default:lava_source")
 override_on_place("bucket:bucket_water")
-override_on_place("default:water_source")
+override_on_place("bucket:river_water_source")
